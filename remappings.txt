@@ -1,0 +1,9 @@
+kernel/=lib/kernel.git/src/
+openzeppelin/=lib/openzeppelin-contracts.git/contracts
+pancakeswap/=lib/pancake-v3-contracts/projects
+@pancakeswap/=lib/pancake-v3-contracts/projects
+uniswapV2Core/=lib/v2-core.git/contracts/interfaces
+uniswapV2Periphery/=lib/v2-periphery.git/contracts/interfaces
+solady/=lib/solady.git/src/
+aaveV3/=lib/aave-v3-core.git/contracts
+forge-std/=lib/forge-std/src

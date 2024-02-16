@@ -1,0 +1,145 @@
+[
+  { "type": "function", "name": "disableMode", "inputs": [{ "name": "_disableFlag", "type": "bytes4", "internalType": "bytes4" }], "outputs": [], "stateMutability": "payable" },
+  {
+    "type": "function",
+    "name": "execute",
+    "inputs": [
+      { "name": "to", "type": "address", "internalType": "address" },
+      { "name": "value", "type": "uint256", "internalType": "uint256" },
+      { "name": "data", "type": "bytes", "internalType": "bytes" },
+      { "name": "", "type": "uint8", "internalType": "enum Operation" }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "executeBatch",
+    "inputs": [
+      {
+        "name": "calls",
+        "type": "tuple[]",
+        "internalType": "struct Call[]",
+        "components": [
+          { "name": "to", "type": "address", "internalType": "address" },
+          { "name": "value", "type": "uint256", "internalType": "uint256" },
+          { "name": "data", "type": "bytes", "internalType": "bytes" }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  { "type": "function", "name": "getDefaultValidator", "inputs": [], "outputs": [{ "name": "", "type": "address", "internalType": "contract IKernelValidator" }], "stateMutability": "view" },
+  { "type": "function", "name": "getDisabledMode", "inputs": [], "outputs": [{ "name": "disabled", "type": "bytes4", "internalType": "bytes4" }], "stateMutability": "view" },
+  {
+    "type": "function",
+    "name": "getExecution",
+    "inputs": [{ "name": "_selector", "type": "bytes4", "internalType": "bytes4" }],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct ExecutionDetail",
+        "components": [
+          { "name": "validAfter", "type": "uint48", "internalType": "ValidAfter" },
+          { "name": "validUntil", "type": "uint48", "internalType": "ValidUntil" },
+          { "name": "executor", "type": "address", "internalType": "address" },
+          { "name": "validator", "type": "address", "internalType": "contract IKernelValidator" }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  { "type": "function", "name": "getLastDisabledTime", "inputs": [], "outputs": [{ "name": "", "type": "uint48", "internalType": "uint48" }], "stateMutability": "view" },
+  { "type": "function", "name": "getNonce", "inputs": [{ "name": "key", "type": "uint192", "internalType": "uint192" }], "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }], "stateMutability": "view" },
+  { "type": "function", "name": "getNonce", "inputs": [], "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }], "stateMutability": "view" },
+  {
+    "type": "function",
+    "name": "initialize",
+    "inputs": [
+      { "name": "_validator", "type": "address", "internalType": "contract IKernelValidator" },
+      { "name": "_data", "type": "bytes", "internalType": "bytes" }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "setDefaultValidator",
+    "inputs": [
+      { "name": "_defaultValidator", "type": "address", "internalType": "contract IKernelValidator" },
+      { "name": "_data", "type": "bytes", "internalType": "bytes" }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "setExecution",
+    "inputs": [
+      { "name": "_selector", "type": "bytes4", "internalType": "bytes4" },
+      { "name": "_executor", "type": "address", "internalType": "address" },
+      { "name": "_validator", "type": "address", "internalType": "contract IKernelValidator" },
+      { "name": "_validUntil", "type": "uint48", "internalType": "ValidUntil" },
+      { "name": "_validAfter", "type": "uint48", "internalType": "ValidAfter" },
+      { "name": "_enableData", "type": "bytes", "internalType": "bytes" }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  { "type": "function", "name": "upgradeTo", "inputs": [{ "name": "_newImplementation", "type": "address", "internalType": "address" }], "outputs": [], "stateMutability": "payable" },
+  {
+    "type": "function",
+    "name": "validateUserOp",
+    "inputs": [
+      {
+        "name": "userOp",
+        "type": "tuple",
+        "internalType": "struct UserOperation",
+        "components": [
+          { "name": "sender", "type": "address", "internalType": "address" },
+          { "name": "nonce", "type": "uint256", "internalType": "uint256" },
+          { "name": "initCode", "type": "bytes", "internalType": "bytes" },
+          { "name": "callData", "type": "bytes", "internalType": "bytes" },
+          { "name": "callGasLimit", "type": "uint256", "internalType": "uint256" },
+          { "name": "verificationGasLimit", "type": "uint256", "internalType": "uint256" },
+          { "name": "preVerificationGas", "type": "uint256", "internalType": "uint256" },
+          { "name": "maxFeePerGas", "type": "uint256", "internalType": "uint256" },
+          { "name": "maxPriorityFeePerGas", "type": "uint256", "internalType": "uint256" },
+          { "name": "paymasterAndData", "type": "bytes", "internalType": "bytes" },
+          { "name": "signature", "type": "bytes", "internalType": "bytes" }
+        ]
+      },
+      { "name": "userOpHash", "type": "bytes32", "internalType": "bytes32" },
+      { "name": "missingAccountFunds", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [{ "name": "validationData", "type": "uint256", "internalType": "ValidationData" }],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "event",
+    "name": "DefaultValidatorChanged",
+    "inputs": [
+      { "name": "oldValidator", "type": "address", "indexed": true, "internalType": "address" },
+      { "name": "newValidator", "type": "address", "indexed": true, "internalType": "address" }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "ExecutionChanged",
+    "inputs": [
+      { "name": "selector", "type": "bytes4", "indexed": true, "internalType": "bytes4" },
+      { "name": "executor", "type": "address", "indexed": true, "internalType": "address" },
+      { "name": "validator", "type": "address", "indexed": true, "internalType": "address" }
+    ],
+    "anonymous": false
+  },
+  { "type": "event", "name": "Upgraded", "inputs": [{ "name": "newImplementation", "type": "address", "indexed": true, "internalType": "address" }], "anonymous": false },
+  { "type": "error", "name": "AlreadyInitialized", "inputs": [] },
+  { "type": "error", "name": "DeprecatedOperation", "inputs": [] },
+  { "type": "error", "name": "DisabledMode", "inputs": [] },
+  { "type": "error", "name": "NotAuthorizedCaller", "inputs": [] },
+  { "type": "error", "name": "NotEntryPoint", "inputs": [] }
+]
